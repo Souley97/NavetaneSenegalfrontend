@@ -21,6 +21,15 @@ export class MatcheService {
     return this.http.get<Matche[]>(this.apiUrl, {headers})
   }
 
+  // Obtenir les matche a venirs
+  getUpcomingMatches (): Observable<Matche[]> {
+    const token = localStorage.getItem('access_token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.get<Matche[]>(`${this.apiUrl}/venirs`, {headers})
+  }
+
   // Obtenir un match par son ID
   getMatchById (id: number): Observable<Matche> {
     const token = localStorage.getItem('access_token');
@@ -29,6 +38,7 @@ export class MatcheService {
     });
     return this.http.get<Matche>(`${this.apiUrl}/${id}` , {headers})
   }
+
 
   // Ajouter un nouveau match
   addMatche (matche: Matche): Observable<Matche> {

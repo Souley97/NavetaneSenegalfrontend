@@ -161,11 +161,12 @@
     <div class="row">
         <!-- Card 1 -->
           <!-- Card 1 -->
-          <div class="col-md-3 col-sm-6"  *ngFor="let match of matches">
+           <!-- stylisers commme affichage matches pour -->
+          <!-- <div class="col-md-3 col-sm-6"  *ngFor="let match of matches">
               <div class="card">
                   <div class="d-flex justify-content-center">
-                      <img src="assets/images/football1.png" alt="">
-                      <img src="assets/images/football1.png" alt="">
+                    <img class="image.png" alt="Image description" src="asset/images/Image.png">
+                    <img class="image.png" alt="Image description" src="asset/images/Image.png">
                   </div>
                   <h5 class="mt-2">{{ match.equipe_local.nom }} <span class="vs">vs</span>{{ match.equipe_visiteur.nom }}</h5>
                   <p> Date: {{ match.date}}
@@ -174,11 +175,33 @@
   
   
               </div>
-          </div>
-          <!-- Card 2 -->
-          
-      </div>
-     </div>
+          </div> -->
+                     <!-- stylisers commme affichage matches pour -->
+                     <div class="row">
+                      <div class="col-md-3 col-sm-6"  *ngFor="let match of matches">
+                        <div class="card shadow-sm p-3 mb-5 bg-white rounded">
+                          <div class="d-flex justify-content-center align-items-center mb-2">
+                            <!-- Team logos (replace 'image.png' with the correct team logo path) -->
+                            <img [src]="'assets/images/' + match.equipe_local.logo" alt="{{ match.equipe_local.nom }} logo" class="team-logo">
+                            <span class="mx-3 vs-text">VS</span>
+                            <img [src]="'assets/images/' + match.equipe_visiteur.logo" alt="{{ match.equipe_visiteur.nom }} logo" class="team-logo">
+                          </div>
+                          
+                          <!-- Team names -->
+                          <h5 class="text-center">
+                            {{ match.equipe_local.nom }} <span class="vs">vs</span> {{ match.equipe_visiteur.nom }}
+                          </h5>
+                    
+                          <!-- Match date and time -->
+                          <p class="text-center">Date: {{ match.date | date: 'shortDate' }} <span class="match-time">17h30</span></p>
+                    
+                          <!-- Match location -->
+                          <p class="text-center">Location: {{ match.lieu }}</p>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+            </div>
 <!-- </section> -->
 <!-- Matches End -->
 
