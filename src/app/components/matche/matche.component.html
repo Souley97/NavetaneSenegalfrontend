@@ -1,0 +1,8 @@
+<h1>Matches</h1>
+<div *ngFor="let match of matches">
+  <h2>Local Team: {{ match.equipe_local.nom }}</h2>
+  <h2>Visitor Team: {{ match.equipe_visiteur.nom }}</h2>
+  <p>Date: {{ match.date | date: 'shortDate' }}</p>
+  <p>Location: {{ match.lieu }}</p>
+  <p>Score: {{ match.resultat }} - {{ match.resultat }}</p>
+</div>
